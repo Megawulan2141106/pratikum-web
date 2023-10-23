@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DOM Properties</title>
+  </head>
+  <body>
+    <ul id="item-list">
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+    </ul>
+    <button id="add-item">Tambah Item</button>
+    <button id="delete-item">Hapus Item</button>
+
+    <script>
+      // Ambil referensi elemen-elemen dari DOM
+      const itemList = document.getElementById("item-list");
+      const addItemButton = document.getElementById("add-item");
+      const deleteItemButton = document.getElementById("delete-item");
+
+      // Fungsi untuk menambahkan item
+      addItemButton.addEventListener("click", function () {
+        const newItem = document.createElement("li");
+        const itemCount = itemList.children.length + 1;
+        newItem.textContent = "Item " + itemCount;
+        itemList.appendChild(newItem);
+      });
+
+      // Fungsi untuk menghapus item
+      deleteItemButton.addEventListener("click", function () {
+        const lastItem = itemList.lastChild;
+        if (lastItem) {
+          itemList.removeChild(lastItem);
+        }
+      });
+    </script>
+  </body>
+</html>
